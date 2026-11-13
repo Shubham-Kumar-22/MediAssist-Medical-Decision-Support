@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Decision Support System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">✚ MediAssist</div>
+        <span class="nav-tag">Health Support System</span>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">SMART HEALTH INFORMATION</p>
+                <h1>Medical Decision<br>Support System</h1>
+                <p class="subtitle">
+                    Select your symptoms to receive general
+                    health information and guidance.
+                </p>
+            </div>
+            <div class="medical-icon">✚</div>
+        </section>
+
+        <section class="notice">
+            <strong>Important Health Notice</strong>
+            <p>
+                This project is for educational purposes only.
+                It does not diagnose diseases or recommend treatment.
+                Consult a qualified healthcare professional.
+                For a medical emergency, contact local emergency services.
+            </p>
+        </section>
+
+<!-- Dashboard Analytics -->
+<section class="dashboard">
+    <div class="dashboard-heading">
+        <div>
+            <p class="eyebrow">OVERVIEW</p>
+            <h2>Dashboard Analytics</h2>
+            <p>Assessment activity overview</p>
+        </div>
+        <span class="dashboard-date">📊 MediAssist Dashboard</span>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-icon blue">📋</span>
+            <p>Total Assessments</p>
+            <h2 id="totalAssessments">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-icon red">⚠️</span>
+            <p>Urgent Alerts</p>
+            <h2 id="urgentAssessments">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-icon green">🩺</span>
+            <p>Symptoms Recorded</p>
+            <h2 id="totalSymptoms">0</h2>
+        </div>
+    </div>
+</section>
+
+        <section class="form-card">
+            <div class="section-heading">
+                <div>
+                    <h2>Patient Information</h2>
+                    <p>Enter basic details below.</p>
+                </div>
+                <span class="step">01 / 02</span>
+            </div>
+
+            <form id="healthForm">
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="patientName">Patient Name</label>
+                        <input
+                            type="text"
+                            id="patientName"
+                            placeholder="Enter your name"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="age">Age</label>
+                        <input
+                            type="number"
+                            id="age"
+                            placeholder="Enter age"
+                            min="1"
+                            max="120"
+                            required
+                        >
+                    </div>
+
+                    <div class="field full">
+                        <label for="duration">How long have you felt unwell?</label>
+                        <select id="duration" required>
+                            <option value="">Select duration</option>
+                            <option value="today">Started today</option>
+                            <option value="few-days">A few days</option>
+                            <option value="week">About a week</option>
+                            <option value="long">More than a week</option>
+                            <option value="unknown">Not sure</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-heading symptoms-heading">
+                    <div>
+                        <h2>Select Symptoms</h2>
+                        <p>Select all that apply.</p>
+                    </div>
+                    <span class="step">02 / 02</span>
+                </div>
+
+                <div class="symptom-grid">
+                    <label class="symptom">
+                        <input type="checkbox" name="symptoms" value="fever">
+                        <span>🌡️ Fever</span>
+                    </label>
+
+                    <label class="symptom">
+                        <input type="checkbox" name="symptoms" value="cough">
+                        <span>😷 Cough</span>
+                    </label>
+
+                    <label class="symptom">
+                        <input type="checkbox" name="symptoms" value="headache">
+                        <span>🤕 Headache</span>
+                    </label>
+
+                    <label class="symptom">
+                        <input type="checkbox" name="symptoms" value="fatigue">
+                        <span>😴 Fatigue</span>
+                    </label>
+
+                    <label class="symptom">
+                        <input type="checkbox" name="symptoms" value="nausea">
+                        <span>🤢 Nausea</span>
+                    </label>
+
+                    <label class="symptom">
+                        <input type="checkbox" name="symptoms" value="sore-throat">
+                        <span>🗣️ Sore Throat</span>
+                    </label>
+
+                    <label class="symptom">
+                        <input type="checkbox" name="symptoms" value="breathing">
+                        <span>🫁 Breathing Difficulty</span>
+                    </label>
+
+                    <label class="symptom">
+                        <input type="checkbox" name="symptoms" value="chest-pain">
+                        <span>❤️ Chest Pain</span>
+                    </label>
+
+                    <label class="symptom">
+                        <input type="checkbox" name="symptoms" value="confusion">
+                        <span>🧠 Confusion</span>
+                    </label>
+
+                    <label class="symptom">
+                        <input type="checkbox" name="symptoms" value="severe-headache">
+                        <span>⚠️ Sudden Severe Headache</span>
+                    </label>
+                </div>
+
+                <div class="field">
+                    <label for="additional">
+                        Additional Information (Optional)
+                    </label>
+                    <textarea
+                        id="additional"
+                        rows="3"
+                        placeholder="Enter any other information..."
+                    ></textarea>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="primary-btn">
+                        Assess Health Information →
+                    </button>
+                    <button type="reset" class="reset-btn">
+                        Reset
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <section id="result" class="result-card" hidden>
+            <div class="result-top">
+                <div>
+                    <p class="eyebrow">ASSESSMENT SUMMARY</p>
+                    <h2>Health Information Report</h2>
+                </div>
+                <span class="report-icon">✚</span>
+            </div>
+
+            <div id="resultContent"></div>
+
+<button type="button" class="download-btn" id="downloadReport">
+    ↓ Download PDF Report
+</button>
+
+            <button class="primary-btn" id="newAssessment">
+                New Assessment
+            </button>
+        </section>
+
+<!-- Assessment History -->
+<section class="history-card">
+    <div class="history-heading">
+        <div>
+            <p class="eyebrow">RECORD MANAGEMENT</p>
+            <h2>Assessment History</h2>
+            <p>Previous demo assessment summaries</p>
+        </div>
+
+        <button type="button" id="clearHistory" class="reset-btn">
+            Clear History
+        </button>
+    </div>
+
+    <div class="history-table-wrapper">
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Symptoms</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="historyBody">
+                <tr>
+                    <td colspan="3" class="empty-history">
+                        No assessment history available.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="history-note">
+        Demo summaries are stored only in this browser.
+        Do not enter real patient information.
+    </p>
+</section>
+
+        <section class="info-grid">
+            <div class="info-card">
+                <span>🔒</span>
+                <h3>Privacy</h3>
+                <p>Information is processed locally in your browser.</p>
+            </div>
+
+            <div class="info-card">
+                <span>📋</span>
+                <h3>Health Information</h3>
+                <p>Understand when professional medical advice may be needed.</p>
+            </div>
+
+            <div class="info-card">
+                <span>👨‍⚕️</span>
+                <h3>Professional Care</h3>
+                <p>Consult healthcare professionals for medical decisions.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 MediAssist | Educational Mini Project</p>
+        <p>Not intended for medical diagnosis or treatment.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
